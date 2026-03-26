@@ -13,7 +13,7 @@ A Flutter plugin for iOS Live Activities and Dynamic Island, powered by Apple's 
 
 ```yaml
 dependencies:
-  flutter_live_activities: ^0.1.0
+  live_activities_flutter: ^0.1.0
 ```
 
 ## iOS Setup

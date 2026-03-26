@@ -3,7 +3,7 @@
 # Run `pod lib lint flutter_live_activities.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_live_activities'
+  s.name             = 'live_activities_flutter'
   s.version          = '0.0.1'
   s.summary          = 'A Flutter plugin for iOS Live Activities and Dynamic Island.'
   s.description      = <<-DESC
