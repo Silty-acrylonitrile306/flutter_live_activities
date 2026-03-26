@@ -1,3 +1,7 @@
+[![pub package](https://img.shields.io/pub/v/live_activities_flutter.svg)](https://pub.dev/packages/live_activities_flutter)
+[![likes](https://img.shields.io/pub/likes/live_activities_flutter)](https://pub.dev/packages/live_activities_flutter/score)
+[![iOS](https://img.shields.io/badge/platform-iOS%2016.1%2B-blue)](https://pub.dev/packages/live_activities_flutter)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 # flutter_live_activities
 
 A Flutter plugin for iOS Live Activities and Dynamic Island, powered by Apple's ActivityKit.
